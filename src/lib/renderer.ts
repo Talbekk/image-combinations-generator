@@ -80,14 +80,21 @@ export function drawShape(
     }
 
     case 'heart': {
-      const s = r * 0.9
-      ctx.moveTo(cx, cy + s * 0.8)
-      ctx.bezierCurveTo(cx - s * 1.5, cy - s * 0.2,  cx - s * 1.5, cy - s * 1.2, cx, cy - s * 0.3)
-      ctx.bezierCurveTo(cx + s * 1.5, cy - s * 1.2,  cx + s * 1.5, cy - s * 0.2, cx, cy + s * 0.8)
+      const s = r * 1.25
+      ctx.moveTo(cx, cy + s * 0.9)
+      ctx.bezierCurveTo(
+        cx - s * 1.2, cy + s * 0.4,
+        cx - s * 1.2, cy - s * 1.1,
+        cx,           cy - s * 0.4
+      )
+      ctx.bezierCurveTo(
+        cx + s * 1.2, cy - s * 1.1,
+        cx + s * 1.2, cy + s * 0.4,
+        cx,           cy + s * 0.9
+      )
       ctx.closePath()
       break
     }
-
     case 'hexagon': {
       for (let i = 0; i < 6; i++) {
         const angle = (Math.PI / 3) * i - Math.PI / 6
