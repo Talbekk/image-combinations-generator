@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { CheckboxGroup }  from './components/CheckboxGroup'
 import { CardPreview }    from './components/CardPreview'
 import { generateAndDownloadZip } from './lib/zip'
@@ -58,6 +58,10 @@ export default function App() {
 
   const [status,   setStatus]   = useState<GenerateStatus>('idle')
   const [progress, setProgress] = useState<{ done: number; total: number } | null>(null)
+
+  const [previewShape,  setPreviewShape]  = useState<ShapeName>('circle')
+  const [previewColour, setPreviewColour] = useState<ColourName>('red')
+  const [previewCount,  setPreviewCount]  = useState<Count>(1)
 
   const totalCards = useMemo(
     () => shapes.size * colours.size * counts.size,
@@ -187,23 +191,33 @@ export default function App() {
 
       <main className={styles.main}>
         <h2 className={styles.previewTitle}>Preview</h2>
-        {previewCombos.length === 0 ? (
-          <p className={styles.emptyMsg}>Select at least one shape, colour, and count to see a preview.</p>
-        ) : (
-          <div className={styles.previewGrid}>
-            {previewCombos.map(([shape, colour, count]) => (
-              <CardPreview
-                key={`${shape}-${colour}-${count}`}
-                shape={shape}
-                colour={colour}
-                count={count}
-                dims={dims}
-                displayWidth={120}
-              />
-            ))}
+        <div style={{ display: 'flex', gap: 12, marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+          <div className={styles.dimField}>
+            <label>Shape</label>
+            <select value={previewShape} onChange={e => setPreviewShape(e.target.value as ShapeName)}>
+              {SHAPE_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+            </select>
           </div>
-        )}
-
+          <div className={styles.dimField}>
+            <label>Colour</label>
+            <select value={previewColour} onChange={e => setPreviewColour(e.target.value as ColourName)}>
+              {COLOUR_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+            </select>
+          </div>
+          <div className={styles.dimField}>
+            <label>Count</label>
+            <select value={previewCount} onChange={e => setPreviewCount(Number(e.target.value) as Count)}>
+              {COUNT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+            </select>
+          </div>
+        </div>
+        <CardPreview
+          shape={previewShape}
+          colour={previewColour}
+          count={previewCount}
+          dims={dims}
+          displayWidth={140}
+        />
         <div className={styles.colourSwatches}>
           <h2 className={styles.previewTitle}>Colour palette</h2>
           <div className={styles.swatchGrid}>
