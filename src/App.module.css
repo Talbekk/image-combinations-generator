@@ -1,0 +1,171 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 340px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid #e8e8e8;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+/* Dimensions */
+.dimSection {
+  margin-bottom: 1.5rem;
+}
+
+.dimLabel {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #666;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.dimRow {
+  display: flex;
+  gap: 8px;
+}
+
+.dimField {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.dimField label {
+  font-size: 11px;
+  color: #888;
+}
+
+.dimField input {
+  width: 100%;
+  padding: 5px 6px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+/* Generate */
+.generateArea {
+  margin-top: 0.5rem;
+}
+
+.countLabel {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.generateBtn {
+  width: 100%;
+  padding: 10px;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.generateBtn:hover:not(:disabled) {
+  background: #333;
+}
+
+.generateBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.progressBar {
+  margin-top: 10px;
+  height: 4px;
+  background: #eee;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #2A6EE8;
+  border-radius: 2px;
+  transition: width 0.1s;
+}
+
+.doneMsg {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #2EAA4A;
+  font-weight: 500;
+}
+
+/* Main area */
+.main {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+}
+
+.previewTitle {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.emptyMsg {
+  font-size: 14px;
+  color: #aaa;
+  font-style: italic;
+}
+
+.previewGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 2.5rem;
+}
+
+/* Colour swatches */
+.colourSwatches {
+  margin-top: 2rem;
+}
+
+.swatchGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.swatch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #444;
+}
+
+.swatchDot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
