@@ -189,6 +189,10 @@ export function renderCardToDataUrl(
 /**
  * Build a filename for a card: e.g. "2_green_triangle.jpg"
  */
+function titleCase(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 export function buildFilename(count: number, colour: ColourName, shape: ShapeName): string {
-  return `${count}_${colour}_${shape}.jpg`
+  return `${count}${titleCase(colour)}${titleCase(shape)}.jpg`
 }
