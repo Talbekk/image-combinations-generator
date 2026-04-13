@@ -68,19 +68,6 @@ export default function App() {
     [shapes, colours, counts]
   )
 
-  // Pick a handful of combos to show as preview tiles
-  const previewCombos = useMemo<Array<[ShapeName, ColourName, Count]>>(() => {
-    const s = [...shapes].slice(0, 2)
-    const c = [...colours].slice(0, 2)
-    const n = [...counts].slice(0, 1) as Count[]
-    const out: Array<[ShapeName, ColourName, Count]> = []
-    for (const shape of s) for (const colour of c) for (const count of n) {
-      out.push([shape, colour, count])
-      if (out.length >= 4) return out
-    }
-    return out
-  }, [shapes, colours, counts])
-
   const handleGenerate = async () => {
     if (!shapes.size || !colours.size || !counts.size) return
     setStatus('running')
