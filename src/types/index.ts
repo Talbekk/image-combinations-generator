@@ -7,6 +7,8 @@ export type ShapeName =
   | 'heart'
   | 'hexagon'
   | 'pentagon'
+  | 'rectangle'
+  | 'oval'
 
 export type ColourName =
   | 'red'

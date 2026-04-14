@@ -118,6 +118,18 @@ export function drawShape(
       ctx.closePath()
       break
     }
+
+  case 'rectangle': {
+    const h = size * 0.6
+    ctx.rect(cx - r, cy - h / 2, size, h)
+    break
+  }
+
+    case 'oval': {
+      ctx.ellipse(cx, cy, r, r * 0.6, 0, 0, Math.PI * 2)
+      break
+    }
+
   }
 
   ctx.fill()

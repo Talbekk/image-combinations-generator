@@ -17,6 +17,8 @@ const SHAPE_OPTIONS: { value: ShapeName; label: string }[] = [
   { value: 'heart',    label: 'Heart'    },
   { value: 'hexagon',  label: 'Hexagon'  },
   { value: 'pentagon', label: 'Pentagon' },
+  { value: 'rectangle', label: 'Rectangle' },
+  { value: 'oval',     label: 'Oval'     },
 ]
 
 const COLOUR_OPTIONS: { value: ColourName; label: string }[] = [
